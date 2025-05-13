@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma To Do List - Formulaire Statique</title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    fieldset {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    legend {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      padding: 1rem;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 1rem;
+      }
+
+      header {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Ma To Do List
+  </header>
+
+  <main>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Nouvelle tâche</legend>
+
+        <label for="title">Titre *</label>
+        <input type="text" id="title" name="title" required placeholder="Ex : faire les devoirs">
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Ex : exercices à rendre..."></textarea>
+
+        <label for="creationDate">Date de création</label>
+        <input type="date" id="creationDate" name="creationDate">
+
+        <label for="dueDate">Date limite</label>
+        <input type="date" id="dueDate" name="dueDate">
+
+        <label for="idPriorite">Priorité *</label>
+        <select id="idPriorite" name="idPriorite" required>
+          <option value="">Sélectionner</option>
+          <option value="1">Très important</option>
+          <option value="2">Important</option>
+          <option value="3">Moyenne</option>
+          <option value="4">Faible</option>
+          <option value="5">Optionnel</option>
+        </select>
+
+        <label for="idStatut">Statut *</label>
+        <select id="idStatut" name="idStatut" required>
+          <option value="">Sélectionner</option>
+          <option value="1">En attente</option>
+          <option value="2">En cours</option>
+          <option value="3">Terminé</option>
+          <option value="4">Annulé</option>
+        </select>
+
+        <label for="idType">Type *</label>
+        <select id="idType" name="idType" required>
+          <option value="">Sélectionner</option>
+          <option value="1">Personnel</option>
+          <option value="2">Travail</option>
+          <option value="3">Études</option>
+          <option value="4">Autre</option>
+        </select>
+
+        <label for="idUrgency">Urgence *</label>
+        <select id="idUrgency" name="idUrgency" required>
+          <option value="">Sélectionner</option>
+          <option value="1">Très urgent</option>
+          <option value="2">Urgent</option>
+          <option value="3">Normal</option>
+          <option value="4">Faible</option>
+        </select>
+
+        <button type="submit">Ajouter la tâche</button>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 - Réalisé par Haifa Bejia
+  </footer>
+
+</body>
+</html>

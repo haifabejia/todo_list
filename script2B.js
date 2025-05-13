@@ -57,3 +57,53 @@ window.addEventListener("DOMContentLoaded", () => {
     selectUrgency.insertAdjacentHTML("beforeend", option);
   });
 });
+
+function saveTask() {
+  const form = document.getElementById("taskForm");
+
+  // Vérifie si les champs obligatoires sont remplis
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  // Lire les champs du formulaire
+  const title = document.getElementById("title").value;
+  const description = document.getElementById("description").value;
+  const creationDate = document.getElementById("creationDate").value;
+  const dueDate = document.getElementById("dueDate").value;
+  const idPriorite = document.getElementById("idPriorite").value;
+  const idStatut = document.getElementById("idStatut").value;
+  const idType = document.getElementById("idType").value;
+  const idUrgency = document.getElementById("idUrgency").value;
+
+  // Récupérer la liste des tâches depuis le localStorage
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+  // Créer un ID auto-incrémenté
+  const newId = tasks.length + 1;
+
+  // Créer un objet tâche
+  const newTask = {
+    id: newId.toString(),
+    title,
+    description,
+    creationDate,
+    dueDate,
+    idPriorite,
+    idStatut,
+    idType,
+    idUrgency
+  };
+
+  // Ajouter à la liste
+  tasks.push(newTask);
+
+  // Enregistrer dans localStorage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  // Réinitialiser le formulaire
+  form.reset();
+
+  alert("Tâche enregistrée !");
+}

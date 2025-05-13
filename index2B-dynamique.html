@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajouter une tâche - To Do List (version dynamique)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Ma To Do List - Version Dynamique</h1>
+  </header>
+
+  <main>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Nouvelle tâche</legend>
+
+        <label for="title">Titre *</label>
+        <input type="text" id="title" name="title" required placeholder="Ex: faire les devoirs" />
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Ex: compléter les exercices de maths..."></textarea>
+
+        <label for="creationDate">Date de création</label>
+        <input type="date" id="creationDate" name="creationDate" />
+
+        <label for="dueDate">Date limite</label>
+        <input type="date" id="dueDate" name="dueDate" />
+
+        <label for="idPriorite">Priorité *</label>
+        <select id="idPriorite" name="idPriorite" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <label for="idStatut">Statut *</label>
+        <select id="idStatut" name="idStatut" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <label for="idType">Type *</label>
+        <select id="idType" name="idType" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <label for="idUrgency">Urgence *</label>
+        <select id="idUrgency" name="idUrgency" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <button type="submit">Ajouter la tâche</button>
+      </fieldset>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Réalisé par Haïfa Bejia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

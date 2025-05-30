@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajouter une tâche - To Do List (version dynamique)</title>
+  <link rel="stylesheet" href="style2A.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Ma To Do List - Version Dynamique</h1>
+  </header>
+
+  <main>
+    <form id="taskForm" action="#" method="post">
+      <fieldset>
+        <legend>Nouvelle tâche</legend>
+
+        <label for="title">Titre *</label>
+        <input type="text" id="title" name="title" required placeholder="Ex: faire les devoirs" />
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Ex: compléter les exercices de maths..."></textarea>
+
+        <label for="creationDate">Date de création</label>
+        <input type="date" id="creationDate" name="creationDate" />
+
+        <label for="dueDate">Date limite</label>
+        <input type="date" id="dueDate" name="dueDate" />
+
+        <label for="idPriorite">Priorité *</label>
+        <select id="idPriorite" name="idPriorite" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <label for="idStatut">Statut *</label>
+        <select id="idStatut" name="idStatut" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <label for="idType">Type *</label>
+        <select id="idType" name="idType" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <label for="idUrgency">Urgence *</label>
+        <select id="idUrgency" name="idUrgency" required>
+          <option value="">Sélectionner</option>
+        </select>
+
+        <button type="button" onclick="saveTask()">Ajouter la tâche</button>
+      </fieldset>
+    </form>
+
+    <h2>Liste des tâches</h2>
+    <table id="taskTable">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Date de création</th>
+          <th>Date limite</th>
+          <th>Priorité</th>
+          <th>Statut</th>
+          <th>Type</th>
+          <th>Urgence</th>
+          <th>Statut dynamique</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Réalisé par Haifa Bejia</p>
+  </footer>
+
+  <script src="script3D.js"></script>
+</body>
+</html>

@@ -27,47 +27,41 @@ const urgencies = [
   { idUrgency: "4", urgency: "Faible" }
 ];
 
-// Génération dynamique des listes
 window.addEventListener("DOMContentLoaded", () => {
-  // Priorité
   const selectPriorite = document.getElementById("idPriorite");
   priorities.forEach((item) => {
     const option = `<option value="${item.idPriority}">${item.priorite}</option>`;
     selectPriorite.insertAdjacentHTML("beforeend", option);
   });
 
-  // Type
   const selectType = document.getElementById("idType");
   types.forEach((item) => {
     const option = `<option value="${item.idType}">${item.type}</option>`;
     selectType.insertAdjacentHTML("beforeend", option);
   });
 
-  // Statut
   const selectStatut = document.getElementById("idStatut");
   statuses.forEach((item) => {
     const option = `<option value="${item.idStatut}">${item.statut}</option>`;
     selectStatut.insertAdjacentHTML("beforeend", option);
   });
 
-  // Urgence
   const selectUrgency = document.getElementById("idUrgency");
   urgencies.forEach((item) => {
     const option = `<option value="${item.idUrgency}">${item.urgency}</option>`;
     selectUrgency.insertAdjacentHTML("beforeend", option);
   });
+
+  displayTasks();
 });
 
 function saveTask() {
   const form = document.getElementById("taskForm");
-
-  // Vérifie si les champs obligatoires sont remplis
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
 
-  // Lire les champs du formulaire
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
   const creationDate = document.getElementById("creationDate").value;
@@ -77,13 +71,9 @@ function saveTask() {
   const idType = document.getElementById("idType").value;
   const idUrgency = document.getElementById("idUrgency").value;
 
-  // Récupérer la liste des tâches depuis le localStorage
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-  // Créer un ID auto-incrémenté
   const newId = tasks.length + 1;
 
-  // Créer un objet tâche
   const newTask = {
     id: newId.toString(),
     title,
@@ -96,14 +86,38 @@ function saveTask() {
     idUrgency
   };
 
-  // Ajouter à la liste
   tasks.push(newTask);
-
-  // Enregistrer dans localStorage
   localStorage.setItem("tasks", JSON.stringify(tasks));
-
-  // Réinitialiser le formulaire
   form.reset();
-
   alert("Tâche enregistrée !");
+  displayTasks();
+}
+
+function displayTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const tableBody = document.getElementById("taskTableBody");
+  tableBody.innerHTML = "";
+
+  tasks.forEach(task => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${task.id}</td>
+      <td>${task.title}</td>
+      <td>${task.description}</td>
+      <td>${task.creationDate}</td>
+      <td>${task.dueDate}</td>
+      <td>${getLabelById(priorities, task.idPriorite, "priorite")}</td>
+      <td>${getLabelById(statuses, task.idStatut, "statut")}</td>
+      <td>${getLabelById(types, task.idType, "type")}</td>
+      <td>${getLabelById(urgencies, task.idUrgency, "urgency")}</td>
+    `;
+
+    tableBody.appendChild(row);
+  });
+}
+
+function getLabelById(list, id, labelField) {
+  const item = list.find(el => el.idPriority === id || el.idStatut === id || el.idType === id || el.idUrgency === id);
+  return item ? item[labelField] : "";
 }

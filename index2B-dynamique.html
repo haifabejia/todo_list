@@ -13,7 +13,7 @@
   </header>
 
   <main>
-    <form id="taskForm" action="#" method="post">   <!-- 3B -->
+    <form id="taskForm" action="#" method="post">
       <fieldset>
         <legend>Nouvelle tâche</legend>
 
@@ -49,9 +49,30 @@
           <option value="">Sélectionner</option>
         </select>
 
-        <button type="button" onclick="saveTask()">Ajouter la tâche</button>  <!-- 3B -->
+        <button type="button" onclick="saveTask()">Ajouter la tâche</button>
       </fieldset>
     </form>
+
+    <!-- Tableau pour afficher les tâches -->
+    <h2>Liste des tâches</h2>
+    <table id="taskTable">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Date de création</th>
+          <th>Date limite</th>
+          <th>Priorité</th>
+          <th>Statut</th>
+          <th>Type</th>
+          <th>Urgence</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
   </main>
 
   <footer>

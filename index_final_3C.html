@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ajouter une tâche - To Do List </title>
+  <title>Ajouter une tâche - To Do List</title>
   <link rel="stylesheet" href="style2A.css" />
 </head>
 <body>
@@ -32,21 +32,34 @@
         <label for="idPriorite">Priorité *</label>
         <select id="idPriorite" name="idPriorite" required>
           <option value="">Sélectionner</option>
+          <option value="high">Haute</option>
+          <option value="medium">Moyenne</option>
+          <option value="low">Basse</option>
         </select>
 
         <label for="idStatut">Statut *</label>
         <select id="idStatut" name="idStatut" required>
           <option value="">Sélectionner</option>
+          <option value="pending">En attente</option>
+          <option value="inProgress">En cours</option>
+          <option value="completed">Terminée</option>
+          <option value="cancelled">Annulée</option>
         </select>
 
         <label for="idType">Type *</label>
         <select id="idType" name="idType" required>
           <option value="">Sélectionner</option>
+          <option value="work">Travail</option>
+          <option value="study">Études</option>
+          <option value="personal">Personnel</option>
         </select>
 
         <label for="idUrgency">Urgence *</label>
         <select id="idUrgency" name="idUrgency" required>
           <option value="">Sélectionner</option>
+          <option value="high">Urgente</option>
+          <option value="medium">Modérée</option>
+          <option value="low">Non urgente</option>
         </select>
 
         <button type="button" onclick="saveTask()">Ajouter la tâche</button>
@@ -77,6 +90,10 @@
   <footer>
     <p>&copy; 2025 - Réalisé par Haifa Bejia</p>
   </footer>
+
+  <script src="script3D.js"></script>
+</body>
+</html>
 
   <script src="script3D.js"></script>
 </body>
